@@ -9,7 +9,7 @@ public class RoomTemplate : MonoBehaviour
     public GameObject[] leftRooms;
     public GameObject[] rightRooms;
 
-    public GameObject closedRoom;
+    public GameObject[] closerRoom;
     
     // Update is called once per frame
     void Update()

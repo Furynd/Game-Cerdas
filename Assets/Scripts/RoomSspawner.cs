@@ -6,18 +6,23 @@ public class RoomSspawner : MonoBehaviour
 {
     public int openingDir;
     private bool spawned = false;
+    private bool blocked = false;
     private int rand;
     private RoomTemplate templates;
 
     void Start()
     {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();    
-        Invoke("Spawn",0.5f);
+        Invoke("Spawn",Random.Range(0.1f,0.5f));
+    }
+
+    public void setSpawned(){
+        spawned = true;
     }
     
     void Spawn()
     {
-        if(spawned == false){
+        if(spawned == false && blocked == false){
             if(openingDir == 0){
                 rand = Random.Range(0,templates.bottomRooms.Length);
                 Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
@@ -33,6 +38,10 @@ public class RoomSspawner : MonoBehaviour
             }
             spawned = true;
         }
+        // else if(blocked && !spawned){
+        //     if(openingDir==2)
+        //         Instantiate(templates.closerRoom[0],transform.position, templates.closerRoom[0].transform.rotation);
+        // }
         
     }
 
@@ -42,7 +51,9 @@ public class RoomSspawner : MonoBehaviour
                 // Instantiate(templates.closedRoom, transform.position, templates.closedRoom.transform.rotation);
                 // Destroy(gameObject);
             // }
-            spawned = true;
+            // spawned = true;
+            // if(other.GetComponent<RoomSspawner>().spawned == )
+            blocked = true;
             Debug.Log("123");
         }
     }

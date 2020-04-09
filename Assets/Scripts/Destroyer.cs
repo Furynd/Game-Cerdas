@@ -6,7 +6,8 @@ public class Destroyer : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D other) {
         if(other.CompareTag("roomspawn")){
-            Destroy(other.gameObject);
+            // other.RoomSspawner.setSpawned();
+            // Destroy(other.gameObject);
             Debug.Log("Tes");
         }
     }
