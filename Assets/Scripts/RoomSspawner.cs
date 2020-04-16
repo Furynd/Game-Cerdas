@@ -38,10 +38,9 @@ public class RoomSspawner : MonoBehaviour
             }
             spawned = true;
         }
-        // else if(blocked && !spawned){
-        //     if(openingDir==2)
-        //         Instantiate(templates.closerRoom[0],transform.position, templates.closerRoom[0].transform.rotation);
-        // }
+        else if(blocked && !spawned){
+            Instantiate(templates.closerRoom[openingDir],transform.position, templates.closerRoom[openingDir].transform.rotation);
+        }
         
     }
 

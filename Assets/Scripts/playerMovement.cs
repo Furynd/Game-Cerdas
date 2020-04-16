@@ -31,9 +31,6 @@ public class playerMovement : MonoBehaviour
         animator.SetFloat("Speed", movement.sqrMagnitude);
         animator.SetFloat("lookx", lookDir.x);
         animator.SetFloat("looky", lookDir.y);
-
-        float angle = Mathf.Atan2(-lookDir.x, lookDir.y) * Mathf.Rad2Deg;
-        firePoint.rotation = angle;
     }
 
     void FixedUpdate()
@@ -41,5 +38,8 @@ public class playerMovement : MonoBehaviour
         //movement
         rb.MovePosition(rb.position + movement*moveSpeed* Time.fixedDeltaTime);
         firePoint.MovePosition(firePoint.position + movement*moveSpeed* Time.fixedDeltaTime);
+
+        float angle = Mathf.Atan2(-lookDir.x, lookDir.y) * Mathf.Rad2Deg;
+        firePoint.rotation = angle;
     }
 }
