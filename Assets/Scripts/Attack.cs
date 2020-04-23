@@ -14,6 +14,11 @@ public class Attack : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+         if(Input.GetKeyDown(KeyCode.Space))
+        {
+            animator.SetTrigger("attack");
+            Shoot();    
+        }
         if(Input.GetButtonDown("Fire1"))
         {
             animator.SetTrigger("attack");

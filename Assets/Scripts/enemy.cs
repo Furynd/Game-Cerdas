@@ -12,13 +12,29 @@ public class enemy : MonoBehaviour
 
     Vector2 movement;
 
+    public int maxHealth = 100;
+    public int currentHealth;
+    public HealthBar healthBar;
+
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        currentHealth = maxHealth;
+        healthBar.setMaxHealth(maxHealth);
+    }
+
+    void TakeDamage(int damage)
+    {
+        currentHealth -= damage;
+        healthBar.setHealth(currentHealth);
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(currentHealth <= 0)
+        {
+            Destroy(gameObject, 0.2f);
+        }
         if(count%2 == 0){
             movement.x = 0;
             movement.y = 0;
@@ -44,7 +60,8 @@ public class enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "playerbullet"){
-            Destroy(gameObject, 0.2f);
+            TakeDamage(50);
+            // Destroy(gameObject, 0.2f);
         }
     }
 }

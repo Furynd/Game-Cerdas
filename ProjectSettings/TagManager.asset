@@ -7,6 +7,7 @@ TagManager:
   - roomspawn
   - Rooms
   - playerbullet
+  - Enemy
   layers:
   - Default
   - TransparentFX
