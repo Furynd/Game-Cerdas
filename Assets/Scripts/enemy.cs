@@ -8,18 +8,25 @@ public class enemy : MonoBehaviour
     public float moveSpeed = 3f;
     public Rigidbody2D rb;
     private Rigidbody2D player;
+    public Animator animator;
     public int count = 0;
+    private bool active = true;
+    public bool back = false;
 
     Vector2 movement;
+    Vector2 startpos;
 
     public int maxHealth = 100;
     public int currentHealth;
     public HealthBar healthBar;
+    
 
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
+        startpos.x = transform.position.x;
+        startpos.y = transform.position.y;
     }
 
     void TakeDamage(int damage)
@@ -31,6 +38,7 @@ public class enemy : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+
         if(currentHealth <= 0)
         {
             Destroy(gameObject, 0.2f);
@@ -43,19 +51,36 @@ public class enemy : MonoBehaviour
         //     movement.x = Random.Range(-1, 2);
         //     movement.y = Random.Range(-1, 2);
         // }
-        else{
+        else if(active){
             float temp = player.position.x - rb.position.x;
-            if(temp > 0) movement.x = 1;
-            else movement.x = -1;
+            if(temp > 0) movement.x = 0.8f;
+            else movement.x = -0.8f;
             temp = player.position.y - rb.position.y;
-            if(temp > 0) movement.y = 1;
-            else movement.y = -1;
+            if(temp > 0) movement.y = 0.8f;
+            else movement.y = -0.8f;
+        }
+        else if(back){
+            float dx,dy;
+            float temp = startpos.x - rb.position.x;
+            dx = temp;
+            if(temp > 0) movement.x = 0.8f;
+            else movement.x = -0.8f;
+            temp = startpos.y - rb.position.y;
+            dy = temp;
+            if(temp > 0) movement.y = 0.8f;
+            else movement.y = -0.8f;
+            if(dx< 1 && dy < 1) back = false;
         }
         count = (count+1) % 10;
+
     }
 
     private void FixedUpdate() {
         rb.MovePosition(rb.position + movement*moveSpeed*Time.fixedDeltaTime);
+        //// Animator
+        animator.SetFloat("Horizontal", movement.x);
+        animator.SetFloat("Vertical", movement.y);
+        animator.SetFloat("Speed", movement.sqrMagnitude);
     }
 
     private void OnCollisionEnter2D(Collision2D other) {
@@ -63,5 +88,14 @@ public class enemy : MonoBehaviour
             TakeDamage(50);
             // Destroy(gameObject, 0.2f);
         }
+    }
+
+    public void setActive(bool set){
+        active = set;
+        Debug.Log("Activated");
+        if(set == false){
+            back = true;
+        }
+        else back = false;
     }
 }

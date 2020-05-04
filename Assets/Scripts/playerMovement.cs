@@ -13,7 +13,7 @@ public class playerMovement : MonoBehaviour
 
     Vector2 movement;
     Vector2 mousePos;
-    Vector2 lookDir;
+    public Vector2 lookDir;
 
 
     // Update is called once per frame

@@ -131,7 +131,7 @@ Canvas:
   m_SortingBucketNormalizedSize: 0
   m_AdditionalShaderChannelsFlag: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 100
   m_TargetDisplay: 0
 --- !u!114 &398735124936517742
 MonoBehaviour:
@@ -185,6 +185,7 @@ GameObject:
   - component: {fileID: 6512927308544862841}
   - component: {fileID: 6512927308544862840}
   - component: {fileID: 6512927308544862836}
+  - component: {fileID: 8139234545919087132}
   m_Layer: 0
   m_Name: Enemy
   m_TagString: Enemy
@@ -200,7 +201,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6512927308544862843}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.35, y: 0, z: -1}
+  m_LocalPosition: {x: -2.35, y: 0, z: -5}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4455609207444337872}
@@ -318,10 +319,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   moveSpeed: 5
   rb: {fileID: 6512927308544862841}
+  animator: {fileID: 8139234545919087132}
   count: 0
+  active: 0
+  back: 0
   maxHealth: 100
   currentHealth: 0
   healthBar: {fileID: 4286768243575805787}
+--- !u!95 &8139234545919087132
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6512927308544862843}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 98d6e7248517a65409847fa85f095c21, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7531201927569479060
 GameObject:
   m_ObjectHideFlags: 0

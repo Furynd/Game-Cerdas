@@ -6,18 +6,27 @@ using UnityEngine.SceneManagement;
 public class Player : MonoBehaviour
 {
     public int maxHealth = 100;
-    public int currentHealth;
+    public static int currentHealth;
     public HealthBar healthBar;
+    public static bool begin = true;
 
     public int maxMana = 100;
     public int currentMana;
     public HealthBar manaBar;
 
+    public LayerMask enemyLayer;
+
     // Start is called before the first frame update
     void Start()
     {
-        currentHealth = maxHealth;
-        healthBar.setMaxHealth(maxHealth);
+        Debug.Log(begin);
+        // if(currentHealth > 100 && currentHealth <= 0)
+        if(begin || currentHealth <= 0){
+            currentHealth = maxHealth;
+            begin = false;
+            Debug.Log(begin);
+        }
+        healthBar.setMaxHealth(currentHealth);
         
         currentMana = maxMana;
         manaBar.setMaxHealth(maxMana);
@@ -26,10 +35,10 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetKeyDown(KeyCode.Space))
-        {
-            
-        }
+        // if(Input.GetKeyDown(KeyCode.Space))
+        // {
+        //     Attack();
+        // }
         if(currentHealth <= 0){
             SceneManager.LoadScene("MenuScene");
         }
@@ -48,5 +57,11 @@ public class Player : MonoBehaviour
         {
             TakeDamage(10);
         }
+    }
+
+    void Attack(){
+        // GameObject bullet = Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        // Rigidbody2D rb = bullet.GetComponent<Rigidbody2D>();
+        // rb.AddForce(firePoint.up *bulletforce, ForceMode2D.Impulse);
     }
 }

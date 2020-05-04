@@ -8,6 +8,7 @@ TagManager:
   - Rooms
   - playerbullet
   - Enemy
+  - portal
   layers:
   - Default
   - TransparentFX

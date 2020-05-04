@@ -10,6 +10,8 @@ public class RoomSspawner : MonoBehaviour
     private int rand;
     private RoomTemplate templates;
 
+    // public GameObject portalPrefab;
+
     void Start()
     {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();    
@@ -37,6 +39,15 @@ public class RoomSspawner : MonoBehaviour
                 Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
             }
             spawned = true;
+            if( !templates.portal && rand < 5){
+                // if(Random.Range(0,2) == 1)
+                GameObject portal = GameObject.FindGameObjectWithTag("portal");
+                portal.transform.position = transform.position;
+                portal.transform.position = new Vector3(transform.position.x, transform.position.y, -1f);
+                // portal.SetActive(true);
+                // GameObject portal = Instantiate(portalPrefab, transform.position, transform.rotation);
+                // templates.portal = true;
+            }
         }
         else if(blocked && !spawned){
             Instantiate(templates.closerRoom[openingDir],transform.position, templates.closerRoom[openingDir].transform.rotation);
