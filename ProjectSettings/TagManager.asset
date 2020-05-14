@@ -9,6 +9,7 @@ TagManager:
   - playerbullet
   - Enemy
   - portal
+  - Statics
   layers:
   - Default
   - TransparentFX

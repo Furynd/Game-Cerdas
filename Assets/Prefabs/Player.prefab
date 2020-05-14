@@ -217,6 +217,7 @@ MonoBehaviour:
   animator: {fileID: 2823026864258760727}
   cam: {fileID: 0}
   firePoint: {fileID: 2823026863599647636}
+  lookDir: {x: 0, y: 0}
 --- !u!95 &2823026864258760727
 Animator:
   serializedVersion: 3
@@ -254,10 +255,10 @@ MonoBehaviour:
   firePointd: {fileID: 0}
   bulletPrefab: {fileID: 3501345806707161852, guid: 42478f140b6753147921b2e597f611f5,
     type: 3}
+  slashPrefab: {fileID: 6327442361372315561, guid: e7e23f9bff0e0d645bb4b3f1c723cb62,
+    type: 3}
   bulletforce: 20
   animator: {fileID: 2823026864258760727}
-  lookDirx: 0
-  lookDiry: 0
 --- !u!61 &2823026864258760721
 BoxCollider2D:
   m_ObjectHideFlags: 0

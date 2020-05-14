@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     public int maxMana = 100;
     public int currentMana;
     public HealthBar manaBar;
+    public float manaRegen = 1.0f;
+    private float nextRegen=0;
 
     public LayerMask enemyLayer;
 
@@ -26,9 +28,9 @@ public class Player : MonoBehaviour
             begin = false;
             Debug.Log(begin);
         }
-        healthBar.setMaxHealth(currentHealth);
+        healthBar.setMaxHealth(maxHealth);
         
-        currentMana = maxMana;
+        currentMana = 0;
         manaBar.setMaxHealth(maxMana);
     }
 
@@ -42,12 +44,35 @@ public class Player : MonoBehaviour
         if(currentHealth <= 0){
             SceneManager.LoadScene("MenuScene");
         }
+
+        if(currentMana < maxMana && Time.time >= nextRegen)
+        {
+            nextRegen = Time.time + manaRegen;
+            currentMana += 1;
+            manaBar.setHealth(currentMana);
+        }    
+        else if(currentMana > maxMana){
+            currentMana = maxMana;
+            manaBar.setHealth(currentMana);
+        }
     }
+
 
     void TakeDamage(int damage)
     {
         currentHealth -= damage;
         healthBar.setHealth(currentHealth);
+    }
+
+    public bool UseMana(int size)
+    {
+        if(currentMana > size)
+        {
+            currentMana -= size;
+            manaBar.setHealth(currentMana);
+            return true;
+        }
+        return false;
     }
 
     void OnCollisionEnter2D(Collision2D collision)

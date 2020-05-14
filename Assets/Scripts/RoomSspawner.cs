@@ -15,6 +15,7 @@ public class RoomSspawner : MonoBehaviour
     void Start()
     {
         templates = GameObject.FindGameObjectWithTag("Rooms").GetComponent<RoomTemplate>();    
+        templates.roomPred ++;
         Invoke("Spawn",Random.Range(0.1f,0.5f));
     }
 
@@ -24,18 +25,25 @@ public class RoomSspawner : MonoBehaviour
     
     void Spawn()
     {
+        if(templates.roomCnt >= templates.roomMax){
+            blocked = true;
+        }
         if(spawned == false && blocked == false){
             if(openingDir == 0){
                 rand = Random.Range(0,templates.bottomRooms.Length);
+                if(templates.roomPred >= templates.roomMax) rand = 0;
                 Instantiate(templates.bottomRooms[rand], transform.position, templates.bottomRooms[rand].transform.rotation);
             } else if(openingDir == 1){
                 rand = Random.Range(0,templates.leftRooms.Length);
+                if(templates.roomPred >= templates.roomMax) rand = 0;
                 Instantiate(templates.leftRooms[rand], transform.position, templates.leftRooms[rand].transform.rotation);
             } else if(openingDir == 2){
                 rand = Random.Range(0,templates.topRooms.Length);
+                if(templates.roomPred >= templates.roomMax) rand = 0;
                 Instantiate(templates.topRooms[rand], transform.position, templates.topRooms[rand].transform.rotation);
             } else if(openingDir == 3){
                 rand = Random.Range(0,templates.rightRooms.Length);
+                if(templates.roomPred >= templates.roomMax) rand = 0;
                 Instantiate(templates.rightRooms[rand], transform.position, templates.rightRooms[rand].transform.rotation);
             }
             spawned = true;
@@ -48,6 +56,7 @@ public class RoomSspawner : MonoBehaviour
                 // GameObject portal = Instantiate(portalPrefab, transform.position, transform.rotation);
                 // templates.portal = true;
             }
+            templates.roomCnt++;
         }
         else if(blocked && !spawned){
             Instantiate(templates.closerRoom[openingDir],transform.position, templates.closerRoom[openingDir].transform.rotation);

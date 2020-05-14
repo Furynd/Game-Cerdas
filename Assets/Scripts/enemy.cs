@@ -8,6 +8,7 @@ public class enemy : MonoBehaviour
     public float moveSpeed = 3f;
     public Rigidbody2D rb;
     private Rigidbody2D player;
+    private GameObject statics;
     public Animator animator;
     public int count = 0;
     private bool active = true;
@@ -23,6 +24,7 @@ public class enemy : MonoBehaviour
 
     private void Start() {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>();
+        statics = GameObject.FindGameObjectWithTag("Statics");
         currentHealth = maxHealth;
         healthBar.setMaxHealth(maxHealth);
         startpos.x = transform.position.x;
@@ -41,7 +43,8 @@ public class enemy : MonoBehaviour
 
         if(currentHealth <= 0)
         {
-            Destroy(gameObject, 0.2f);
+            statics.GetComponent<StaticVar>().score++;
+            Destroy(gameObject);
         }
         if(count%2 == 0){
             movement.x = 0;
@@ -97,5 +100,9 @@ public class enemy : MonoBehaviour
             back = true;
         }
         else back = false;
+    }
+
+    void kill(){
+        statics.GetComponent<StaticVar>().score++;
     }
 }
