@@ -13,6 +13,7 @@ TagManager:
   - HUD
   - score
   - enemydetect
+  - powerSurge
   layers:
   - Default
   - TransparentFX

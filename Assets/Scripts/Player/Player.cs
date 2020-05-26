@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public int currentHealth;
     public HealthBar healthBar;
     public static bool begin = true;
+    public StaticVar stat;
 
     public int maxMana = 100;
     public int currentMana;
@@ -33,11 +34,13 @@ public class Player : MonoBehaviour
         currentMana = 0;
         manaBar.setMaxHealth(maxMana);
         Invoke("updateHealth",0.1f);
+        manaRegen = stat.manaRegen;
     }
 
     // Update is called once per frame
     void Update()
     {
+        manaRegen = stat.manaRegen;
         // if(Input.GetKeyDown(KeyCode.Space))
         // {
         //     Attack();
@@ -73,6 +76,11 @@ public class Player : MonoBehaviour
     public void setcurHealth(int health){
         // Debug.Log("HHH"+health.ToString());
         currentHealth = health;
+    }
+
+    public void setMaxHealth(int health){
+        maxHealth = health;
+        healthBar.setMaxHealth(maxHealth);
     }
 
     public void setcurMana(int mana){

@@ -879,6 +879,26 @@ PrefabInstance:
       propertyPath: manaBar
       value: 
       objectReference: {fileID: 1744120737}
+    - target: {fileID: 1572651693, guid: 6680dfbcf19d6bf4690ab1e7c591c1e9, type: 3}
+      propertyPath: stat
+      value: 
+      objectReference: {fileID: 1125245799}
+    - target: {fileID: 1572651693, guid: 6680dfbcf19d6bf4690ab1e7c591c1e9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859016842, guid: 6680dfbcf19d6bf4690ab1e7c591c1e9, type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859016843, guid: 6680dfbcf19d6bf4690ab1e7c591c1e9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1859016844, guid: 6680dfbcf19d6bf4690ab1e7c591c1e9, type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 2823026864258760726, guid: 6680dfbcf19d6bf4690ab1e7c591c1e9,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -946,6 +966,28 @@ PrefabInstance:
       objectReference: {fileID: 519420031}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6680dfbcf19d6bf4690ab1e7c591c1e9, type: 3}
+--- !u!1 &2823026864765487389 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1859016841, guid: 6680dfbcf19d6bf4690ab1e7c591c1e9,
+    type: 3}
+  m_PrefabInstance: {fileID: 2823026864765487388}
+  m_PrefabAsset: {fileID: 0}
+--- !u!111 &2823026864765487390
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2823026864765487389}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 15f00cc402fe3f24a8e92e91d8cf345f, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: 15f00cc402fe3f24a8e92e91d8cf345f, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1001 &4153141422794360821
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -100,7 +100,7 @@ public class REnemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "playerbullet" || other.gameObject.tag =="Player"){
-            TakeDamage(40);
+            TakeDamage( statics.GetComponent<StaticVar>().damage);
             // Destroy(gameObject, 0.2f);
         }
     }

@@ -48,25 +48,25 @@ public class Attack : MonoBehaviour
         if(lookDir.x * lookDir.x > lookDir.y * lookDir.y){
             if(lookDir.x > 0){
                 qn = new Quaternion(0,0,-1,1);
-                newPos.x = firePoint.position.x + 1;
-                newPos.y = firePoint.position.y;
+                newPos.x = transform.position.x + 1;
+                newPos.y = transform.position.y;
             }
             else if(lookDir.x < 0){
                 qn = new Quaternion(0,0,1,1);
-                newPos.x = firePoint.position.x - 1;
-                newPos.y = firePoint.position.y;
+                newPos.x = transform.position.x - 1;
+                newPos.y = transform.position.y;
             }
         }
         else if(lookDir.x * lookDir.x < lookDir.y * lookDir.y){
             if(lookDir.y > 0){
                 qn = new Quaternion(0,0,0,1);
-                newPos.x = firePoint.position.x;
-                newPos.y = firePoint.position.y + 1;
+                newPos.x = transform.position.x;
+                newPos.y = transform.position.y + 1;
             }
             else if(lookDir.y < 0){
                 qn = new Quaternion(0,0,1,0);
-                newPos.x = firePoint.position.x;
-                newPos.y = firePoint.position.y-1.5f;
+                newPos.x = transform.position.x;
+                newPos.y = transform.position.y-1.5f;
             }
         }
         // Vector2 sRotation = firePoint.rotation;
