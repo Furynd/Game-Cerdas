@@ -92,6 +92,8 @@ MonoBehaviour:
   - {fileID: 5071799183718705044, guid: 2ca9e963a26800b4bb378fa17d3f3ade, type: 3}
   - {fileID: 8812100957061724396, guid: 83dedb8c84d788141875f3cbeab0ab06, type: 3}
   - {fileID: 7378194331560069335, guid: e1e15574e60ce4c4b9032c7c903251d5, type: 3}
+  stat: {fileID: 0}
   portal: 0
   roomCnt: 0
+  roomPred: 0
   roomMax: 10

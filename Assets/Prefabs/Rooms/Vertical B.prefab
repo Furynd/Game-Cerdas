@@ -150,6 +150,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyPrefab: {fileID: 6512927308544862843, guid: f3df0ffef9b00c64f8e925f0a2329d25,
     type: 3}
+  REnemyPrefab: {fileID: 8480302192706062964, guid: 97bc5638258b4744db24cdca5ca5ea14,
+    type: 3}
   active: 0
   spawned: 0
 --- !u!61 &-5087720425408137698
