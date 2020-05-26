@@ -88,7 +88,7 @@ public class enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other) {
         if(other.gameObject.tag == "playerbullet"){
-            TakeDamage(50);
+            TakeDamage(40);
             // Destroy(gameObject, 0.2f);
         }
     }
